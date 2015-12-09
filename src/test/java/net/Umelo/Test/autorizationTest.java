@@ -31,9 +31,10 @@ public class autorizationTest {
         steps.noCheckBoxLogin("tester@iskyweb.com","qwerty");
     }
 
-    @Test
+    @Test //ест гит
     public void emptyFieldMail() throws Exception {
         steps.noCheckBoxLogin(" ","qwerty");
+
     }
 
 
