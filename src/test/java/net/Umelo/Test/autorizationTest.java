@@ -18,7 +18,7 @@ public class autorizationTest {
      WebDriver driver;
     LoginSteps steps;
 
-    @Before
+    @Before //для ветки дев
     public  void setUp() throws Exception {
         driver = new FirefoxDriver();
         WebdriverHolder.setDriver(driver);
