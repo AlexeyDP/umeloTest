@@ -16,15 +16,19 @@ public class LoginSteps {
         loginComponent.open("http://umelo.net/user/login");
     }
 
+    //корректная регистрация без выставленея чек бокса
     public void noCheckBoxLogin(String mail, String pass){
         loginComponent.getLoginInput().sendKeys(mail);
         loginComponent.getPasswordInput().sendKeys(pass);
         loginComponent.getLoginButton().click();
     }
+    //корректная регистрация с выставлением чек бокса
     public void checkBoxLogin(String mail,String pass){
-        noCheckBoxLogin(mail,pass);
+        loginComponent.getLoginInput().sendKeys(mail);
+        loginComponent.getPasswordInput().sendKeys(pass);
         loginComponent.getLoginCheckBox().click();
         assertTrue(loginComponent.getLoginCheckBox().isSelected());
+        loginComponent.getLoginButton().click();
     }
 
 }

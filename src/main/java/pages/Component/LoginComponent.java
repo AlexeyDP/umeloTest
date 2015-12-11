@@ -22,6 +22,6 @@ public class LoginComponent {
         return $(By.cssSelector("#j-u-login-pass"));
     }
     public WebElement getLoginButton(){return $(By.cssSelector("#j-u-login-form > div:nth-child(5) > div > button"));}
-    public WebElement getLoginCheckBox(){return $(By.cssSelector("#j-u-login-form > div:nth-child(4) > div > div > label > input[type=\"checkbox\"]"));}
+    public WebElement getLoginCheckBox(){return $(By.cssSelector(".checkbox>label>input"));}
 
 }

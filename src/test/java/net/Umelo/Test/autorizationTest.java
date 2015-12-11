@@ -7,7 +7,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.WebdriverHolder;
 import pages.Steps.LoginSteps;
 
+
 import java.util.Collection;
+
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -18,7 +21,7 @@ public class autorizationTest {
      WebDriver driver;
     LoginSteps steps;
 
-    @Before //для ветки дев
+    @Before
     public  void setUp() throws Exception {
         driver = new FirefoxDriver();
         WebdriverHolder.setDriver(driver);
@@ -31,24 +34,19 @@ public class autorizationTest {
         steps.noCheckBoxLogin("tester@iskyweb.com","qwerty");
     }
 
-    @Test //ест гит меняем бранч
+    @Test
     public void emptyFieldMail() throws Exception {
         steps.noCheckBoxLogin(" ","qwerty");
-
     }
-
-
 
     @Test
     public void chekedLogin() throws Exception {
         steps.checkBoxLogin("tester@iskyweb.com","qwerty");
-
     }
 
     @After
     public void tearDown() throws Exception {
         driver.close();
-
     }
 }
 
