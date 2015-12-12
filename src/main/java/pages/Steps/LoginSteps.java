@@ -3,7 +3,7 @@ package pages.Steps;
 import org.openqa.selenium.support.PageFactory;
 import pages.WebdriverHolder;
 import pages.Component.LoginComponent;
-import java.util.regex.Pattern;
+
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -17,18 +17,18 @@ public class LoginSteps {
     }
 
     //корректная регистрация без выставленея чек бокса
-    public void noCheckBoxLogin(String mail, String pass){
+    public void setUserLogin(String mail, String pass){
         loginComponent.getLoginInput().sendKeys(mail);
         loginComponent.getPasswordInput().sendKeys(pass);
+
+    }
+    public void loginButtonClick(){
         loginComponent.getLoginButton().click();
     }
-    //корректная регистрация с выставлением чек бокса
-    public void checkBoxLogin(String mail,String pass){
-        loginComponent.getLoginInput().sendKeys(mail);
-        loginComponent.getPasswordInput().sendKeys(pass);
-        loginComponent.getLoginCheckBox().click();
-        assertTrue(loginComponent.getLoginCheckBox().isSelected());
-        loginComponent.getLoginButton().click();
-    }
+    //создать метод который будет только переходить к всплывающему окну и брать его текст
+
+    //создать метод ставящий чек бокс и проверяющий что он выставлен
+
+
 
 }

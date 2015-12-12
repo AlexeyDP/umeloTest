@@ -1,16 +1,13 @@
 package net.Umelo.Test;
 
 import org.junit.*;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.WebdriverHolder;
 import pages.Steps.LoginSteps;
 
 
-import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -29,20 +26,20 @@ public class autorizationTest {
     }
 
     @Test
-    public void sucsessLogin() throws Exception {
+    public void correctUserLogin() throws Exception {
 
-        steps.noCheckBoxLogin("tester@iskyweb.com","qwerty");
+        steps.setUserLogin("tester@iskyweb.com","qwerty");
+        steps.loginButtonClick();
+        //вставить ассерт с проверкой страницы
     }
 
     @Test
     public void emptyFieldMail() throws Exception {
-        steps.noCheckBoxLogin(" ","qwerty");
+        steps.setUserLogin(" ","qwerty");
+        //вызываем метод всплывающего окна и сравниваем текст
     }
 
-    @Test
-    public void chekedLogin() throws Exception {
-        steps.checkBoxLogin("tester@iskyweb.com","qwerty");
-    }
+
 
     @After
     public void tearDown() throws Exception {
