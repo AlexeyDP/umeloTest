@@ -4,6 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.WebdriverHolder;
 import pages.Component.LoginComponent;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -14,6 +15,7 @@ public class LoginSteps {
     public LoginSteps(){
         this.loginComponent = PageFactory.initElements(WebdriverHolder.getDriver(),LoginComponent.class);
         loginComponent.open("http://umelo.net/user/login");
+
     }
 
     //корректная регистрация без выставленея чек бокса
@@ -25,9 +27,22 @@ public class LoginSteps {
     public void loginButtonClick(){
         loginComponent.getLoginButton().click();
     }
-    //создать метод который будет только переходить к всплывающему окну и брать его текст
 
-    //создать метод ставящий чек бокс и проверяющий что он выставлен
+    public void checkBoxclick(){
+        loginComponent.getLoginCheckBox().click();
+        loginComponent.getLoginCheckBox().isSelected();
+    }
+
+    public void AllertPoupupGettext(String text){
+        //впихнуть проверку что это страница логина именно
+        assertEquals(loginComponent.getAlertPoupup().getText(),text);
+    }
+
+
+
+
+
+
 
 
 

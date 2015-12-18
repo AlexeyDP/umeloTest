@@ -26,20 +26,43 @@ public class autorizationTest {
     }
 
     @Test
-    public void correctUserLogin() throws Exception {
-
+    //Тест проверяет авторизацию при вводе корректных логина и пароля
+    public void validUserLogin() throws Exception {
         steps.setUserLogin("tester@iskyweb.com","qwerty");
         steps.loginButtonClick();
-        //вставить ассерт с проверкой страницы
     }
 
     @Test
-    public void emptyFieldMail() throws Exception {
-        steps.setUserLogin(" ","qwerty");
-        //вызываем метод всплывающего окна и сравниваем текст
+    //тест проверяет что при авторизации выставляется чек бокс для запоминания лог/ пас пользователя
+    public void rememberLogin() throws Exception {
+        steps.setUserLogin("tester@iskyweb.com","qwerty");
+        steps.checkBoxclick();
+        steps.loginButtonClick();
     }
 
+    @Test
+    //тест проверяет что авторизация при пустом поле логина невозможно и проверяет текст сообщения об ошибке
+    public void emptyFieldLogin() throws Exception {
+        steps.setUserLogin(" ","qwerty");
+        steps.loginButtonClick();
+        steps.AllertPoupupGettext("Заполните все отмеченные поля");
+    }
 
+    @Test
+    //тест проверяет сообщение об ошибке при неверно введенном пароле и существующем логине
+    public void incorrectPassword() throws Exception {
+        steps.setUserLogin("tester@iskyweb.com","asdfgh");
+        steps.loginButtonClick();
+        steps.AllertPoupupGettext("E-mail или пароль указаны некорректно");
+    }
+
+    @Test
+    //тест проверяет сообщение об ошибке при введенных несуществующих логине и пароле
+    public void incorrectLogPas() throws Exception {
+        steps.setUserLogin("test","test");
+        steps.loginButtonClick();
+        steps.AllertPoupupGettext("Логин или пароль указаны некорректно");
+    }
 
     @After
     public void tearDown() throws Exception {

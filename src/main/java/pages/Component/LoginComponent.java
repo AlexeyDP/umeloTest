@@ -23,5 +23,6 @@ public class LoginComponent {
     }
     public WebElement getLoginButton(){return $(By.cssSelector("#j-u-login-form > div:nth-child(5) > div > button"));}
     public WebElement getLoginCheckBox(){return $(By.cssSelector(".checkbox>label>input"));}
+    public WebElement getAlertPoupup(){return $(By.xpath("/html/body/div[1]/div/div"));}
 
 }
